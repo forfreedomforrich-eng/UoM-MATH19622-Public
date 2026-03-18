@@ -1,0 +1,330 @@
+%!TEX root = TheCourse.tex
+
+\part{Discrete Probability Distributions}
+
+\begin{frame}[allowframebreaks]{Overview}
+    \small
+    \begin{itemize}
+        \item Random Variables ($X$)
+            \begin{itemize}
+                \item Discrete Probability Mass Functions (Tables)
+                \item \textbf{Expectation:} $E(X) = \sum x P(x)$ (The long-run average)
+            \end{itemize}
+        \item The Binomial Model
+            \begin{itemize}
+                \item Conditions: Fixed $n$, Binary outcomes ($p/q$), Independence
+                \item Formula: $P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$
+            \end{itemize}
+        \item Parameters \& Examples
+            \begin{itemize}
+                \item Mean $\mu = np$, Variance $\sigma^2 = np(1-p)$
+                \item Practical calculation examples (e.g., Quality Control)
+            \end{itemize}
+        \item The Poisson Distribution
+            \begin{itemize}
+                \item Modeling rare events in time/space ($P(X=k) = \frac{e^{-\lambda} \lambda^k}{k!}$)
+                \item Contrast: When to use Binomial vs. Poisson
+            \end{itemize}
+        \item Transition to Continuous Data
+            \begin{itemize}
+                \item From Histograms to Frequency Curves
+                \item Key Concept: Area under the curve = Probability ($100\%$)
+            \end{itemize}
+        \item Intro to The Normal Distribution
+            \begin{itemize}
+                \item Properties: Symmetric, Bell-shaped, Asymptotic tails
+                \item The Empirical Rule (68-95-99.7 Rule) for estimation
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\section{Discrete Probability Distributions}
+
+\begin{frame}{From Events to Random Variables}
+    In the previous lecture, we looked at the probability of specific, single events (like drawing a red sock). In engineering, we usually want to model a whole system of events mathematically. 
+    
+    To do this, we use \textbf{Random Variables}.
+    
+    \vspace{0.3cm}
+    \begin{definition}[Discrete Random Variable]
+        A discrete random variable (usually denoted by a capital letter like $X$) is a function that assigns a \textbf{numerical value} to each outcome in a sample space. It can only take on a countable number of distinct values (e.g., $0, 1, 2, 3\dots$).
+    \end{definition}
+
+    \only<article>{
+        For example, instead of writing out the sample space for testing three microcontrollers as $\{PPP, PPF, \dots, FFF\}$, we can simply define a random variable $X$ as \lq the number of failed chips\rq. $X$ can then take the discrete values $x = 0, 1, 2, \text{ or } 3$.
+    }
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Discrete Random Variables: Expectation}
+    Before we look at complex models, we must understand how to find the \textbf{average} outcome of a random process.
+    
+    \begin{definition}[Expected Value $E(X)$]
+        The Expected Value (or mean) of a discrete random variable is the weighted average of all possible outcomes:
+        \[ E(X) = \mu = \sum_{i=1}^{n} x_i P(x_i) \]
+    \end{definition}
+
+    \begin{example}[Component Testing]
+        A technician tests a batch of 3 sensors. The probability of $x$ sensors being faulty is given below:
+        \begin{center}
+        \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        $x$ & 0 & 1 & 2 & 3 \\ \hline
+        $P(X=x)$ & 0.70 & 0.20 & 0.08 & 0.02 \\ \hline
+        \end{tabular}
+        \end{center}
+        Calculate the expected number of faulty sensors, $E(X)$.
+    \end{example}
+\end{frame}
+
+\begin{frame}{Solution: Expectation}
+    \begin{solution}
+        To find $E(X)$, we multiply each outcome by its probability and sum them up:
+        \begin{align*}
+            E(X) &= (0 \times 0.70) + (1 \times 0.20) + (2 \times 0.08) + (3 \times 0.02) \\
+                 &= 0 + 0.20 + 0.16 + 0.06 \\
+                 &= \mathbf{0.42} \text{ sensors}
+        \end{align*}
+        \textbf{Engineering Interpretation:} If we tested thousands of batches, we would find an average of 0.42 faults per batch.
+    \end{solution}
+\end{frame}
+
+\subsection{The Binomial Distribution}
+
+\begin{frame}[allowframebreaks]{The Binomial Distribution}
+    The Binomial Distribution is the ultimate tool for Quality Assurance engineers. It models the number of \textbf{successes} in a fixed number of \textbf{independent trials}.
+
+    \vspace{0.2cm}
+    \begin{block}{Conditions for a Binomial Model}
+        To use this model, your experiment must meet four strict rules:
+        \begin{enumerate}
+            \item There is a fixed number of trials ($n$).
+            \item Each trial has only two outcomes (\lq Success\rq\ or \lq Failure\rq).
+            \item The probability of success ($p$) is the same for every trial.
+            \item The trials are completely \textbf{independent}.
+        \end{enumerate}
+    \end{block}
+
+    \only<presentation>{\pause \vspace{0.2cm}}
+
+    \begin{definition}[The Binomial Formula]
+        If $X \sim \text{Bin}(n, p)$, the probability of getting exactly $k$ successes is:
+        \[ P(X=k) = \binom{n}{k} p^k (1-p)^{n-k} \]
+        \textit{Where $\binom{n}{k} = \frac{n!}{k!(n-k)!}$ is the number of possible combinations.}
+    \end{definition}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{The \lq 8 Heads\rq\ Problem Solved}
+    \begin{example}[Is the coin biased?]
+        In Part 1, we asked: \textit{\lq You flip a fair coin 10 times. You should get 5 heads. You actually get 8. Is the coin biased, or is it just bad luck?\rq}
+        
+        Now we have the exact formula to solve this. Assume the coin is perfectly fair ($p = 0.5$). Let $X$ be the number of heads in $n=10$ independent flips.
+        
+        \vspace{0.2cm}
+        \structure{Question:}
+        \begin{enumerate}
+            \item Calculate the exact probability of getting \textbf{exactly 8} heads by pure random chance.
+            \item \textbf{If} each person in a class of 300 students was to do this experiment, how many would get exactly 8 heads?
+        \end{enumerate}
+    \end{example}
+
+    \framebreak
+
+    \begin{solution}
+        1. Here, $X \sim \text{Bin}(10, 0.5)$. We want to find $P(X=8)$.
+        
+        \vspace{0.2cm}
+        \textbf{Calculation:}
+        \begin{align*}
+            P(X=8) &= \binom{10}{8} (0.5)^8 (1 - 0.5)^{10-8} \\
+                   &= \frac{10!}{8!(2)!} (0.5)^8 (0.5)^2 \\
+                   &= 45 \times (0.5)^{10} \\
+                   &= 45 \times 0.000976 \\
+                   &= \mathbf{0.0439} \text{ \textbf{(or 4.39\%)}}
+        \end{align*}
+        
+        \vspace{0.3cm}
+        2. \textbf{Expected number of students:} 
+        \[ E(X) = 300 \times 0.0439 \approx \mathbf{13} \text{ \textbf{students}} \]
+    \end{solution}
+    
+    \framebreak
+    
+    \begin{solution}
+        \textbf{Engineering Conclusion:}
+        \begin{itemize}
+            \item There is a 4.39\% chance of getting exactly 8 heads from a perfectly fair coin just by luck.
+            \item While 4.39\% is low (about 1 in 23), it is \textbf{not impossible}. 
+            \item Out of 300 students, we actually \textit{expect} 13 of you to see this result!
+            \item Therefore, seeing 8 heads does \textit{not} definitively prove the coin is mathematically rigged. It just means you witnessed a slightly rare event.
+        \end{itemize}
+        
+        \vspace{0.4cm}
+        \textit{(Note: We will learn exactly where to draw the "impossible" line when we cover Hypothesis Testing in Lecture 4!)}
+    \end{solution}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Engineering Example: Quality Control}
+    \begin{example}[Manufacturing Yield]
+        A factory produces LED bulbs. Historically, 5\% of the bulbs are defective ($p = 0.05$). An engineer pulls a random sample of 10 bulbs off the assembly line ($n = 10$).
+        
+        \vspace{0.2cm}
+        \structure{Questions:}
+        \begin{enumerate}
+            \item What is the probability that \textbf{exactly 0} bulbs are defective? (A perfect batch).
+            \item What is the probability that \textbf{exactly 2} bulbs are defective?
+        \end{enumerate}
+    \end{example}
+
+    \framebreak
+
+    \begin{solution}
+        Let $X$ be the number of defective bulbs. $X \sim \text{Bin}(10, 0.05)$.
+        
+        \vspace{0.2cm}
+        \textbf{1. Exactly 0 defective ($k=0$):}
+        \begin{align*}
+            P(X=0) &= \binom{10}{0} (0.05)^0 (1 - 0.05)^{10-0} \\
+                   &= 1 \times 1 \times (0.95)^{10} \\
+                   &= \mathbf{0.5987} \text{ (or 59.87\%)}
+        \end{align*}
+    \end{solution}
+    
+    \framebreak
+    
+    \begin{solution}
+        \textbf{2. Exactly 2 defective ($k=2$):}
+        \begin{align*}
+            P(X=2) &= \binom{10}{2} (0.05)^2 (0.95)^8 \\
+                   &= \frac{10!}{2!(8)!} \times 0.0025 \times 0.6634 \\
+                   &= 45 \times 0.0025 \times 0.6634 \\
+                   &= \mathbf{0.0746} \text{ (or 7.46\%)}
+        \end{align*}
+    \end{solution}
+\end{frame}
+
+\begin{frame}{Mean and Variance of a Binomial Model}
+    Because the Binomial distribution is highly structured, calculating its expected value and spread doesn't require building complex tables!
+
+    \vspace{0.3cm}
+    \begin{block}{Binomial Shortcuts}
+        If $X \sim \text{Bin}(n, p)$:
+        \begin{itemize}
+            \item \textbf{Mean (Expectation):} $\mu = E(X) = np$
+            \item \textbf{Variance:} $\sigma^2 = np(1-p)$
+            \item \textbf{Standard Deviation:} $\sigma = \sqrt{np(1-p)}$
+        \end{itemize}
+    \end{block}
+
+    \pause \vspace{0.3cm}
+    \begin{example}[Expected Failures]
+        If we sample 10 bulbs with a 5\% defect rate, how many do we \textit{expect} to be defective?
+        \[ E(X) = 10 \times 0.05 = \mathbf{0.5} \text{ bulbs} \]
+    \end{example}
+\end{frame}
+
+\begin{frame}[fragile]{Python: The Binomial Distribution}
+    Calculating factorials by hand is fine for $n=10$, but not practical for $n=10,000$. Engineers use the \texttt{scipy.stats} library to calculate complex probabilities instantly.
+
+    \structure{Solving the \lq 8 Heads\rq\ Problem:}
+    We want exactly 8 heads from 10 flips ($p=0.5$). We use the Probability Mass Function (\texttt{pmf}).
+
+    \insertcode{Our 8 heads python style}{code/BinomialDistribution.py}
+
+    \textit{Notice that Python gives us the exact same 4.39\% we calculated by hand!}
+\end{frame}
+
+
+\subsection{The Poisson Distribution}
+
+\begin{frame}{The Poisson Distribution}
+    While the Binomial distribution counts successes in a \textit{fixed number of trials}, the \textbf{Poisson Distribution} counts events that occur randomly over a \textbf{continuous interval} (like time, area, or volume).
+
+    \begin{block}{When to use Poisson in EEE:}
+        \begin{itemize}
+            \item Number of network packets lost per minute.
+            \item Number of microscopic defects per square meter of silicon.
+            \item Number of server crashes per month.
+        \end{itemize}
+    \end{block}
+
+    \pause 
+
+    \begin{definition}[The Poisson Formula]
+        If $X \sim \text{Pois}(\lambda)$, the probability of exactly $k$ events occurring is:
+        \[ P(X=k) = \frac{e^{-\lambda} \lambda^k}{k!} \]
+        \textit{Where $\lambda$ (lambda) is the average rate of occurrence, and $e \approx 2.718$.}
+    \end{definition}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Engineering Example: Network Faults}
+    \begin{example}[Fiber Optic Cable Faults]
+        A long-haul fiber optic network experiences an average of $\lambda = 2$ dropped connections per day. 
+        
+        \vspace{0.2cm}
+        \structure{Questions:}
+        \begin{enumerate}
+            \item What is the probability that the network experiences \textbf{exactly 0} drops tomorrow? (A perfect day).
+            \item What is the probability that the network experiences \textbf{at most 2} drops?
+        \end{enumerate}
+    \end{example}
+
+    \framebreak
+
+    \begin{solution}
+        Let $X$ be the number of dropped connections per day. $X \sim \text{Pois}(2)$.
+        
+        \vspace{0.2cm}
+        \textbf{1. Exactly 0 drops ($k=0$):}
+        \begin{align*}
+            P(X=0) &= \frac{e^{-2} 2^0}{0!} \\
+                   &= \frac{0.1353 \times 1}{1} \\
+                   &= \mathbf{0.1353} \text{ (or 13.5\% chance of a perfect day)}
+        \end{align*}
+    \end{solution}
+    
+    \framebreak
+    
+    \begin{solution}
+        \textbf{2. At most 2 drops ($X \leq 2$):}
+        \vspace{0.1cm} \\
+        This means 0 drops, 1 drop, \textbf{or} 2 drops. We must add the probabilities!
+        \begin{align*}
+            P(X \leq 2) &= P(X=0) + P(X=1) + P(X=2) \\
+                        &= e^{-2} \left( \frac{2^0}{0!} + \frac{2^1}{1!} + \frac{2^2}{2!} \right) \\
+                        &= 0.1353 \times \left( 1 + 2 + \frac{4}{2} \right) \\
+                        &= 0.1353 \times 5 \\
+                        &= \mathbf{0.6765} \text{ (or 67.65\%)}
+        \end{align*}
+    \end{solution}
+\end{frame}
+
+\begin{frame}{Mean and Variance of a Poisson Model}
+    The Poisson distribution has a unique and beautiful mathematical property regarding its average and its spread.
+
+    \vspace{0.3cm}
+    \begin{block}{Poisson Shortcuts}
+        If $X \sim \text{Pois}(\lambda)$:
+        \begin{itemize}
+            \item \textbf{Mean (Expectation):} $\mu = E(X) = \lambda$
+            \item \textbf{Variance:} $\sigma^2 = \lambda$
+        \end{itemize}
+    \end{block}
+
+    \pause \vspace{0.3cm}
+    \begin{alertblock}{The Mathematical Oddity}
+        In a Poisson distribution, the mean is \textbf{exactly equal} to the variance! As the average rate of events increases, the uncertainty (spread) around that rate increases at the exact same pace.
+    \end{alertblock}
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]{Python: The Poisson Distribution}
+    \only<article>{For the network faults example ($\lambda = 2$), we can calculate both exact and cumulative probabilities.}
+
+    \structure{Solving the \lq At most 2 drops\rq\ Problem:}
+    Instead of manually adding $P(X=0) + P(X=1) + P(X=2)$, we can use the Cumulative Distribution Function (\texttt{cdf}) to add them automatically!
+ 
+ \insertcode{Poisson Example}{code/Poisson.py}
+  
+\end{frame}

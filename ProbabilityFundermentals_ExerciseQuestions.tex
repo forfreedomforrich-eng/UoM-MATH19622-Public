@@ -1,0 +1,70 @@
+%!TEX root = ExerciseSheet2.tex
+% -----------------------------------------------------------------------------
+% PART A
+% -----------------------------------------------------------------------------
+\subsection*{Part A: The Idea}
+\textit{These questions test the mathematical definitions and calculations devoid of physical context.}
+
+\begin{enumerate}[label=\textbf{Q\arabic*.}, leftmargin=*]
+
+    \item \textbf{Basic Probability \& Set Operations} \\
+    Let $A$ and $B$ be two events in a sample space $S$. You are given the following probabilities:
+    $P(A) = 0.40$, $P(B) = 0.35$, and $P(A \cap B) = 0.15$.
+    \begin{enumerate}[label=\arabic*.]
+        \item Calculate the probability of $A$ or $B$ occurring, $P(A \cup B)$.
+        \item Calculate the conditional probability of $B$ occurring given that $A$ has occurred, $P(B|A)$.
+        \item Are events $A$ and $B$ mutually exclusive? Justify your answer using the provided numbers.
+        \item Are events $A$ and $B$ independent? Justify your answer mathematically.
+    \end{enumerate}
+    \vspace{0.3cm}
+
+    \item \textbf{Conditional Probability \& Trees} \\
+    An urn contains $5$ white balls and $3$ black balls. You draw two balls from the urn \textbf{without replacement}. Let $W_1$ be the event that the first ball is white, and $B_2$ be the event that the second ball is black.
+    \begin{enumerate}[label=\arabic*.]
+        \item Calculate $P(W_1)$.
+        \item Calculate $P(B_2 | W_1)$. 
+        \item Calculate the probability that the first ball is white \textbf{and} the second is black, $P(W_1 \cap B_2)$.
+        \item Calculate the unconditional probability that the second ball is black, $P(B_2)$, by considering both possible outcomes for the first draw. \textit{(Hint: A tree diagram will help here).}
+    \end{enumerate}
+
+\end{enumerate}
+
+\vspace{0.8cm}
+
+% -----------------------------------------------------------------------------
+% PART B
+% -----------------------------------------------------------------------------
+\subsection*{Part B: Exam Style Questions: Engineering Application}
+\textit{These questions test the exact same mathematical concepts as Part A, but applied to the Electrical Engineering scenarios discussed in the lecture.}
+
+\begin{enumerate}[label=\textbf{Q\arabic*.}, leftmargin=*, start=3]
+
+    \item \textbf{The Addition Law \& Manufacturing Defects} \\
+    A batch of freshly manufactured printed circuit boards (PCBs) is undergoing visual inspection. The probability that a board has a soldering defect is $0.08$. The probability it has a broken copper trace is $0.04$. The probability that a board has \textbf{both} defects is $0.01$.
+    \begin{enumerate}[label=\arabic*.]
+        \item What is the probability that a board has \textit{at least one} of these defects?
+        \item If you randomly select a board and notice it has a broken copper trace, what is the probability that it also has a soldering defect?
+    \end{enumerate}
+    \vspace{0.3cm}
+
+    \item \textbf{The Law of Independence \& System Redundancy} \\
+    A critical data server requires a cooling fan to prevent thermal shutdown. A standard fan has a $5\%$ chance of failing during a year of continuous operation ($P(F) = 0.05$). To improve reliability, an engineer installs two identical fans in parallel. They operate completely independently of one another.
+    \begin{enumerate}[label=\arabic*.]
+        \item Using the Multiplication Law for independent events, calculate the probability that \textbf{both} fans fail during the year.
+        \item The server will survive as long as \textit{at least one} fan is working. Using the Complement rule, what is the probability that the server survives the year without thermal shutdown?
+        \item Based on these numbers, explain why EEEs heavily rely on the mathematics of independent events when designing critical systems.
+    \end{enumerate}
+    \vspace{0.3cm}
+
+    \item \textbf{The Problem of \lq Luck\rq\ Resolved (Bridging the Gap)} \\
+    In Module 1, we asked: \textit{"You flip a fair coin 10 times. You should get 5 heads. You actually get 8. Is the coin biased, or is it just bad luck?"} Now we have the mathematical tools to solve this without any advanced formulas!
+    
+    Assume the coin is perfectly fair ($P(H) = 0.5$, $P(T) = 0.5$) and each flip is completely independent.
+    \begin{enumerate}[label=\arabic*.]
+        \item Imagine one specific sequence of 10 flips: getting 8 heads in a row, followed by 2 tails ($H-H-H-H-H-H-H-H-T-T$). Using the Multiplication Law for independent events, calculate the exact probability of this specific sequence occurring.
+        \item Of course, $H-H-H-H-H-H-H-H-T-T$ is not the only way to get 8 heads. You could get $T-H-H-H-H-H-H-H-H-T$, etc. The mathematical formula for finding the number of possible combinations is $\frac{n!}{k!(n-k)!}$. Using $n=10$ and $k=8$, calculate how many different ways you can arrange 8 heads and 2 tails.
+        \item Because each of these combinations is \textbf{mutually exclusive}, we can use the Addition Law. Multiply your answer from Part 1 by your answer from Part 2 to find the total probability of getting exactly 8 heads.
+        \item Does this percentage prove the coin is mathematically biased, or does it prove that 8 heads can happen purely by chance? 
+    \end{enumerate}
+
+\end{enumerate}

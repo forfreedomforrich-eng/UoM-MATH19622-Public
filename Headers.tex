@@ -1,0 +1,130 @@
+%Packages
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+
+%Set the theme and stype
+\usetheme{Pittsburgh}
+\usecolortheme{rose}
+\usefonttheme{serif}
+\useinnertheme{rounded}
+\useoutertheme{infolines}
+\setbeamercovered{dynamic}
+%\setbeamertemplate{navigation symbols}{}
+\setbeamercovered{invisible}
+%For better formating of the tables
+\usepackage{booktabs}
+
+%Setting up the parts, lectures and sections
+\AtBeginLecture{\subtitle{\insertlecture} \maketitle}
+\AtBeginPart{\frame{\partpage}\frame[allowframebreaks]{\tableofcontents[hideallsubsections]}}
+\AtBeginSection[]{\frame[allowframebreaks]{\frametitle{Outline - Next Section}\tableofcontents[currentsection,hideothersubsections]}}
+
+%------Change block to subsubsections in the article model-----%
+\mode<article>{
+    % Redefine the standard Beamer block to become a subsubsection
+    \renewenvironment{block}[1]{
+        \subsubsection{#1}
+    }{
+        \par\vspace{0.3cm} % Adds a nice little breathing space after the block
+    }
+}
+
+%------Change strucutre command to subsubs ection as well in article mode----%
+\mode<article>{
+    % 1. Redefine \structure to act as an unnumbered subsubsection
+    %\renewcommand{\structure}[1]{\subsubsection{#1}}
+    \renewcommand{\structure}[1]{\textbf{#1}}
+
+}
+
+%-------Making nice defintion boxes for the reader-------%
+\mode<article>{
+    \usepackage{tcolorbox}
+    
+    % 1. "Delete" the boring default article definition
+    \let\definition\relax
+    \let\enddefinition\relax
+    
+    % 2. Create a beautiful new Beamer-style box for the reader
+    \newtcolorbox{definition}[1][]{
+        colback=blue!5!white,      % Very light blue background
+        colframe=blue!75!black,    % Dark blue border and header
+        fonttitle=\bfseries,       % Bold header text
+        title={Definition\ifx\relax#1\relax\else: #1\fi}, % Auto-adds the title
+        arc=2mm,                   % Rounded corners
+        boxrule=1pt,               % Thickness of the border
+        left=2mm, right=2mm, top=2mm, bottom=2mm % Internal padding
+    }
+}
+
+
+%-----Setting for including python code----%
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Define colours for syntax highlighting
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Configure the style
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize, % Typewriter font, slightly smaller
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4
+}
+\lstset{style=mystyle}
+%---End python code setting----%
+
+%Define my custom enviroments
+\newenvironment<>{recipe}[1][]{%
+%  \setbeamercolor{block title}{fg=white,bg=red!75!black}%
+  \begin{alertblock}{Recipe (#1)}}{\end{alertblock}}
+
+
+%Remove the frame title from article and here use just the section and subsection titles.
+\mode<article>{\renewcommand{\frametitle}[1]{}}
+
+%\mode<article>{\renewcommand{\lecturetitle}[1]{}}
+
+\definecolor{SolarizedYellow}{RGB}{253, 246, 227} % Body
+\definecolor{SolarizedAccent}{RGB}{238, 232, 213} % Title (slightly darker)
+
+\newcommand{\insertcode}[2]{%
+  \only<presentation>{%
+    \setbeamercolor{block title}{bg=SolarizedAccent, fg=black}
+    \setbeamercolor{block body}{bg=SolarizedYellow, fg=black}%
+    \begin{block}{#1}
+      \lstinputlisting[language=Python]{#2}
+    \end{block}%
+  }%
+  \only<article>{%
+    \vspace{0.2cm}
+    % Changing 'title' to 'caption' enables automatic numbering
+    \lstinputlisting[language=Python, caption={#1}]{#2}
+    \vspace{0.2cm}
+  }%
+}
+
+
+
+% Title Formatting
+\title{\textbf{MATH19622-1E2: Introduction to Probability and Statistics}\\
+\large 4 Lecture Series (90 minutes per Lecture)}
+\author{Anthony R. Thornton}
+\date{2025/2026}

@@ -1,0 +1,284 @@
+%!TEX root = LectureSlides.tex
+% ==========================================
+% MODULE 1
+% ==========================================
+\lecture{Course overview and statistics}  
+\titlepage
+\section{About the course}
+
+\subsection{History of the course}
+\begin{frame}
+\frametitle{History of the course}
+The course was \alert{newly} developed by \textbf{Anthony R. Thornton} for the 2025/2026 academic year.
+
+Course is based on:
+\begin{description}
+\item[Mathematics 2M1 | Probability and Statistics] written by Robert Gaunt, School of Natural Sciences, University of Manchester
+ and David J. Silvester, School of Natural Sciences, University of Manchester.
+\end{description}
+
+\end{frame}
+
+\subsection{Additional reading}
+\begin{frame}[allowframebreaks]
+\frametitle{Optional Books}
+\only<article>{It should be noted that this reader, with associated lecture slides forms the \emph{entire} content of the course and is complete. However for the interested student a selection of text books is includes some following the same style as the course and other that are more mathematically rigourous. It should be noted all the resources listed below are full \textbf{open access}.}
+
+\only<presentation>{Optional \textbf{Open Access} additional reading for this course:}
+
+\begin{block}{Primary Resources}
+\begin{itemize}
+    \item \textbf{Module 1 (Descriptive Statistics):} \\
+    \emph{Introductory Statistics} by \textbf{OpenStax}. \\
+    \url{https://openstax.org/details/books/introductory-statistics}
+
+    \item \textbf{Modules 2--4 (Probability):} \\
+    \emph{Introduction to Probability, Statistics, and Random Processes} \\
+    by \textbf{H. Pishro-Nik}. (Tailored for EEE). \\
+    \url{https://www.probabilitycourse.com}
+\end{itemize}
+\end{block}
+
+\begin{block}{Supplementary / General Reference}
+\begin{itemize}
+    \item \emph{OpenIntro Statistics} by \textbf{Diez, Çetinkaya-Rundel, \& Barr}. \\
+    (A clean, concise alternative for general statistics concepts). \\
+    \url{https://www.openintro.org/book/os/}
+
+    \item \emph{Think Stats} by \textbf{Allen B. Downey}. \\
+    (Teaches statistics through Python programming). \\
+    \url{https://greenteapress.com/wp/think-stats-2e/}
+
+    \item \textbf{Khan Academy (Statistics \& Probability)}. \\
+    (Video tutorials useful for visualising histograms and distributions). \\
+    \url{https://www.khanacademy.org/math/statistics-probability}
+\end{itemize}
+\end{block}
+
+\begin{block}{For the Mathematically Interested}
+    \emph{Introduction to Probability} by \textbf{Grinstead \& Snell}. \\
+    (Classic text with rigorous proofs and derivations). \\
+    \url{https://math.dartmouth.edu/~prob/prob/prob.pdf}
+\end{block}
+\end{frame}
+
+\subsection{Course Structure}
+\begin{frame}
+\frametitle{Course Structure}
+This course is designed to cover the final part of Mathematics for EEE 1E2, namely:
+
+\begin{description}
+    \item[Statistics] Discrete and continuous data. Mean, mode, and median. Range, variance and \textbf{standard deviation}. Frequency curves: Normal distribution and standardised normal.
+    \item[\& Probability] Empirical and classical. Addition and multiplication laws. Probability distributions. Mean and standard deviation. Binomial and Poisson distribution. Normal distribution curves.
+\end{description}
+
+It will consist of four approximately 90-minute lectures.
+\only<article>{The course is written in a highly practical way, focusing on the application of the topic rather than proofs, derivations, and strict mathematical rigour. However, it also teaches you how to identify the underlying mathematics in real-world scenarios, using many examples drawn from electrical engineering. Ultimately, this is not a pure maths course; it is a maths \textit{for} engineering course.}
+
+\only<presentation>{\vspace{0.5cm} % Adds a little breathing room
+}
+
+The first two elements: Differential Vector Calculus and Integral Vector Calculus are \textbf{covered} by a separate course taught by \alert{Igor Chernyavsky}.
+\end{frame}
+
+\subsection{Assessment}
+\begin{frame}
+\frametitle{Assessment}
+The assessment for these elements of the course consists of:
+\begin{itemize}
+    \setlength\itemsep{1em}
+    \item \textbf{Online Coursework} (Week 10) \\
+    \hspace{0.5cm} Contributes \textbf{10\%} to the final grade.
+    
+    \item \textbf{End-of-Semester Examination} \\
+    \hspace{0.5cm} Contributes \textbf{80\%} to the final grade.
+\end{itemize}
+
+\vspace{0.5cm} % Adds separation for the final note
+\small{The remaining \textbf{10\%} is assessed in the section taught by \textbf{Igor Chernyavsky}.}
+\only<presentation>{\\[2mm]}
+Note both these test wills also include questions from the earlier parts 1 and 2.
+\end{frame}
+
+\subsection{Course Overview}
+\begin{frame}
+\frametitle{Course Overview}
+    \textbf{Overview:} 5 Thematic Blocks delivered across 4 Lectures (100 mins each).
+    
+    \vspace{0.3cm}
+    \begin{center}
+    \small
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \textbf{Session} & \textbf{Thematic Blocks} & \textbf{Learning Outcomes} \\ \hline
+        Lecture 1 & Overview of Part &  \\
+         & \textbf{Block 1:} Descriptive Statistics & ILO 5: Data Analysis \\ \hline
+        Lecture 2 & \textbf{Block 2:} Prob. Fundamentals & ILO 6: Modeling \\ 
+                  & \textbf{Block 3:} Discrete Distributions & \\ \hline
+        Lecture 3 & \textbf{Block 4:} Continuous Distributions & ILO 6: Problem Solving \\ \hline
+        Lecture 4 & \textbf{Block 5:} Linear Regression & ILO 5: Interpretation \\
+                   & \\ \hline
+    \end{tabular}
+    \end{center}
+
+    
+\end{frame}
+
+\only<presentation>{
+\begin{frame}{The QA Bounty Program}
+    \begin{itemize}
+        \item \textbf{The Task:} Find a significant typo, a calculation error, or suggest a major improvement to a course or a example.
+        \item \textbf{The Reward:} A £5 coffee voucher (FoodonCampus or Blackwell's).
+        \item \textbf{The Catch:} First person to email me the fix wins the bounty for that slide!
+    \end{itemize}
+    \vspace{0.3cm}
+    \centering
+    \textit{\lq An engineer who never makes a mistake has never made anything.\rq}
+\end{frame}
+}
+
+
+
+% --- Module Title Slide ---
+
+
+%% --- Lecture 1 ---
+%\begin{frame}{Lecture 1: Data Types and Measures of Central Tendency}
+%    \small % Reducing font size slightly to fit detailed lists
+%    \begin{itemize}
+%        \item \textbf{10 mins:} Introduction to Statistics.
+%        \begin{itemize}
+%            \item Definitions: Population vs. Sample.
+%        \end{itemize}
+%        \item \textbf{15 mins:} Types of Data.
+%            \begin{itemize}
+%                \item \textbf{Discrete Data:} Countable values (e.g., number of students).
+%                \item \textbf{Continuous Data:} Measurable values (e.g., height, weight, time).
+%            \end{itemize}
+%        \item \textbf{20 mins:} Measures of Location (Central Tendency).
+%            \begin{itemize}
+%                \item \textbf{Mean ($\bar{x}$):} Calculation for raw data.
+%                \item \textbf{Median:} Finding the middle value (odd vs. even $n$).
+%                \item \textbf{Mode:} Most frequent value; Unimodal vs. Bimodal.
+%            \end{itemize}
+%        \item \textbf{5 mins:} Summary and quick practice problem.
+%    \end{itemize}
+%\end{frame}
+
+\input{IntroductionAndDataTypes.tex}
+
+
+
+% ==========================================
+% MODULE 2
+% ==========================================
+% ==========================================
+% MODULE 2: PROBABILITY FUNDAMENTALS
+% ==========================================
+
+% --- Module Title Slide ---
+
+\input{ProbabilityFundermentals.tex}
+
+
+
+% ==========================================
+% MODULE 3: DISCRETE DISTRIBUTIONS
+% ==========================================
+\input{DiscreteProbabilityDistributions.tex}
+
+
+
+% ==========================================
+% MODULE 4: THE NORMAL DISTRIBUTION
+% ==========================================
+\section{Module 4: Continuous Distributions \& The Normal (Lecture 6)}
+
+% --- Module Title Slide ---
+\begin{frame}
+    \centering
+    \Huge \textbf{Module 4} \\
+    \large The Normal Distribution
+    \vspace{1cm}
+    
+    \normalsize \textit{Goal: Mastering the Z-score and Engineering Tolerances.}
+\end{frame}
+
+% --- Lecture 6 ---
+\begin{frame}{Lecture 6: Standard Normal \& Applications}
+    \small
+    \begin{itemize}
+        \item \textbf{15 mins:} The Standard Normal ($Z$).
+            \begin{itemize}
+                \item Why we standardize: Comparing different scales.
+                \item Formula: $Z = \frac{X - \mu}{\sigma}$.
+            \end{itemize}
+        \item \textbf{15 mins:} Using Z-Tables.
+            \begin{itemize}
+                \item Reading Cumulative Probability (Area to the left).
+                \item Handling ``Greater Than'' ($1 - P$) and ``Between'' logic.
+            \end{itemize}
+        \item \textbf{20 mins:} Engineering Applications.
+            \begin{itemize}
+                \item \textbf{Forward Problems:} Given Tolerance, find Reject Rate ($\%$).
+                \item \textbf{Inverse Problems:} Given desired Yield ($\%$), find required Tolerance ($X$).
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+%Based on the syllabus you provided in your first prompt ("Statistics: Discrete and continuous data. Mean, mode, and median..."), there is a significant section missing from these lecture notes.
+%
+%While the notes are excellent for the Probability half of your course, they almost entirely skip the introductory Descriptive Statistics module.
+%
+%Here is the breakdown of what is missing and what is covered compared to your original plan:
+%
+%1. What is Missing? (Descriptive Statistics)
+%The notes begin immediately with Probability theory. They do not cover the foundational tools used to summarize raw data before applying probability models. Specifically, the following topics from your syllabus are absent:
+%
+%Measures of Central Tendency: There are no definitions or examples for calculating the Median or Mode for raw data sets. The notes only mention the mean ( 
+%x
+%ˉ
+% ) briefly in Chapter 5 when discussing estimation.
+%
+%Measures of Dispersion (Data): There is no coverage of Range or Interquartile Range (IQR). The "Variance" is introduced strictly in the context of Random Variables (Var(X)) or sample estimation (s 
+%2
+% ), rather than as a descriptive statistic for understanding data spread initially.
+%
+%
+%
+%Data Types & Visualization: While the notes distinguish between discrete and continuous random variables, they do not cover the classification of raw data (categorical, ordinal, ratio) or Frequency Curves and histograms in a descriptive context (drawing them from data).
+%
+%2. What is Covered? (Probability & Distributions)
+%The notes align perfectly with the second half of your syllabus:
+%
+%
+%Probability Laws: Chapter 1 covers the sample space, conditional probability, and independence.
+%
+%
+%
+%
+%Discrete Distributions: Chapter 2 covers the Binomial and Poisson distributions, including their means and variances.
+%
+%
+%
+%Continuous Distributions: Chapter 3 covers Continuous Random Variables and the Exponential distribution.
+%
+%
+%
+%The Normal Distribution: Chapter 4 covers the Normal distribution, the standard normal (Z), and the Central Limit Theorem.
+%
+%
+%
+%3. What is Extra? (Inference)
+%The notes contain advanced material that was not in your original 9-10 lecture list. Chapter 5 covers Statistical Inference, including:
+%
+%Confidence Intervals for means and proportions.
+%
+%
+%Sample size determination.
+%
+%Hypothesis Testing.
+%
+%Summary & Recommendation
+%Lectures 1–2 (Descriptive Stats): You cannot use these notes for your first two lectures. You will need to create material covering Mean, Mode, Median, Range, and Data Types from scratch.
+%
+%Lectures 3–10 (Probability): These notes are a perfect resource for the rest of your course. You can likely stop after Chapter 4, as Chapter 5 (Confidence Intervals) appears to go beyond your requested syllabus.
