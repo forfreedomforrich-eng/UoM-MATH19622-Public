@@ -15,10 +15,30 @@
 %For better formating of the tables
 \usepackage{booktabs}
 
+%Set up the blocks and the numbering of the sections and parts
+\renewcommand{\partname}{Block}
+\renewcommand{\thepart}{\arabic{part}}
+
 %Setting up the parts, lectures and sections
 \AtBeginLecture{\subtitle{\insertlecture} \maketitle}
 \AtBeginPart{\frame{\partpage}\frame[allowframebreaks]{\tableofcontents[hideallsubsections]}}
 \AtBeginSection[]{\frame[allowframebreaks]{\frametitle{Outline - Next Section}\tableofcontents[currentsection,hideothersubsections]}}
+
+% --- Hierarchical Numbering for the Handbook ---
+% --- Hierarchical Numbering for the Handbook ---
+\mode<article>{
+    % 1. Link section numbering to part (Block)
+    \numberwithin{section}{part}
+    
+    % 2. Fix the "0.x" issue for the Intro sections
+    \renewcommand{\thesection}{%
+        \ifnum\value{part}=0
+            I.\arabic{section}% Before Block 1: Just print "1, 2"
+        \else
+            \thepart.\arabic{section}% Inside a Block: Print "1.1, 1.2"
+        \fi
+    }
+}
 
 %------Change block to subsubsections in the article model-----%
 \mode<article>{
@@ -29,6 +49,7 @@
         \par\vspace{0.3cm} % Adds a nice little breathing space after the block
     }
 }
+
 
 %------Change strucutre command to subsubs ection as well in article mode----%
 \mode<article>{
