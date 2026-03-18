@@ -552,22 +552,38 @@ Scenario:
 }
 \end{frame}
 
-\only<presentation>{
-\begin{frame}{Interactive Demonstration}
+% --- LIVE LECTURE VERSION ---
+\begin{frame}<beamer>[fragile]{Interactive Demonstration}
     \structure{The Pull of the Outlier}
     
     Let's look at how the Mean and Median react in real-time when we introduce an extreme network delay.
     
     \vspace{1cm}
     \centering
-    % This creates a beautiful Beamer-styled button
-    % It tells the OS to run the python file located in the same folder as your PDF
-    \href{run:./code/run_MeanVersusMedium.command}{\beamerbutton{\Large Launch Python Simulation}}
+    \href{run:./code/run_MeanVersusMedian.command}{\beamerbutton{\Large Launch Python Simulation}}
     
     \vspace{1cm}
     \textit{(Note: This will open an external interactive Matplotlib window.)}
 \end{frame}
-}
+
+% --- STUDENT HANDOUT VERSION ---
+\begin{frame}<handout>[fragile]{Interactive Demonstration}
+    \structure{The Pull of the Outlier}
+    
+    Let's look at how the Mean and Median react in real-time when we introduce an extreme network delay.
+    
+    \vspace{0.5cm}
+    \textbf{Try it yourself:}
+    
+    To see this interactive simulation, download the course code folder from \textbf{Canvas}, open it in VS Code, and run the following command in your terminal:
+    
+    \begin{lstlisting}[language=bash]
+uv run code/MeanVersusMedian.py
+    \end{lstlisting}
+    
+    \vspace{0.2cm}
+    \textit{This will launch a GUI with sliders, allowing you to manually change the latency values and watch how the Mean and Median react.}
+\end{frame}
 
 \section{Python to the Rescue}
 \subsection{Setting up VS code for python}
@@ -1123,10 +1139,8 @@ Compute the standard deviation and variance of the following data.
         \end{tabular}
       
     \end{table}
-Step 5: 
-    \[ s^2 = \frac{30}{8-1} = \frac{30}{7} = 4.29 \]
-Step 6:
-    \[ s = \sqrt{4.29} \approx 2.07 \]
+Step 5: $ s^2 = \frac{30}{8-1} = \frac{30}{7} = 4.29 $ \\
+Step 6: $ s = \sqrt{4.29} \approx 2.07 $
     \end{solution}
 \end{frame}
 
