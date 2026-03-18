@@ -1,0 +1,18 @@
+# LaTeX junk
+*.aux
+*.log
+*.toc
+*.nav
+*.snm
+*.out
+*.synctex.gz
+
+# Python junk
+.venv/
+__pycache__/
+.python-version
+
+# Security filter
+*Exam*
+*Solution*
+*.docx
