@@ -169,6 +169,11 @@ Scenario:
             \item What variables might be missing from the sample?
         \end{itemize}
 \end{example}
+\only<beamer>{
+    \normalsize Switch over to \textbf{menti.com} on your phones!
+    
+    \textit{(Code: 2860 3964)}
+    }
 
 
 
@@ -191,12 +196,18 @@ Scenario:
     \begin{definition}[Sampling Variation (Random Error)]
         \alert{Random error} is the difference between the sample statistic ($\bar{x}$) and the true \textbf{population parameter} ($\mu$) caused purely by chance.
     \end{definition}
+%    \only<beamer>{
+%    \framebreak
+%     Switch over to \textbf{menti.com} on your phones!
+%    
+%    \textit{(Code: 2860 3964)}}
 
     \begin{example}
         You flip a fair coin 10 times. You \textit{should} get 5 Heads.
         \begin{itemize}
             \item \textbf{Result:} You get 8 Heads.
-            \item \textbf{Is the coin biased?} Probably not. You just had \lq bad luck\rq\ (random variation) in your small sample.
+
+            \item \textbf{Is the coin biased?}              \pause Probably not. You just had \lq bad luck\rq\ (random variation) in your small sample.
         \end{itemize}
     \end{example}
 
@@ -236,6 +247,7 @@ Scenario:
             However, if your sample is truly random, you can shrink your random error simply by testing more units. As sample size ($n$) increases, the Confidence Interval becomes narrower. In engineering design, this creates a direct, real-world trade-off: the statistical precision of your data versus the financial cost of testing more components.
         }
     \end{block}
+
 \end{frame}
 
 %------%
@@ -249,7 +261,7 @@ Scenario:
         We just established that random variation (sampling error) is an unavoidable physical reality. Because this variation exists, a dangerous question arises: if we test something enough times, can we weaponise that randomness to get the result we want?
     }
     
-    \begin{example}[The Unethical Engineer]
+    \begin{example}[The (Un)ethical Engineer]
         An engineer wants to prove a new battery lasts longer.
         \begin{itemize}
             \item They run \textbf{100 separate small experiments}.
@@ -258,6 +270,10 @@ Scenario:
             \item \textbf{Action:} They publish \emph{only} the 5 \lq successful\rq\ results and hide the rest.
         \end{itemize}
     \end{example}
+       \only<beamer>{
+             Switch over to \textbf{menti.com} on your phones!
+    
+    \textit{(Code: 2860 3964)}}
 
     \begin{block}{This is P-Hacking (Data Dredging)}
         
@@ -282,6 +298,8 @@ Scenario:
             \textit{The Golden Rule of Statistical Ethics:} You must report \textbf{all} experimental attempts and data points, not just the ones that fit your desired conclusion or make your design look good.
         }
     \end{block}
+     
+                
 \end{frame}
 
 % -----------------------------------------------------------------------------
@@ -512,6 +530,10 @@ Scenario:
             \item Draw an engineering conclusion: Which measure best represents the network's typical performance?
         \end{enumerate}
     \end{example}
+       \only<beamer>{
+             Switch over to \textbf{menti.com} on your phones!
+    
+    \textit{(Code: 2860 3964)}}
     
     \pause
     
@@ -550,6 +572,7 @@ Scenario:
     Look at our sorted data again: $12, 12, \mathbf{14}, 15, \text{outlier}$. 
     Whether that final outlier is 20\,ms, 200\,ms, or 2,000,000\,ms, the middle packet will always be 14\,ms. This mathematical property makes the median incredibly \textbf{robust}. In real-world engineering, where sensor glitches, network buffer spikes, or manufacturing anomalies occasionally produce wildly extreme numbers, the median protects your analysis from being ruined by a single bad data point.
 }
+
 \end{frame}
 
 % --- LIVE LECTURE VERSION ---
@@ -786,6 +809,8 @@ uv run code/MeanVersusMedian.py
             \end{itemize}
         }
         
+        
+        
         % The Trap Question (Visible from Slide 1)
         \only<presentation>{\vspace{0.2cm}}
         \visible<1->{\structure{Question:} Would you build the same bridge or roads in both?}
@@ -812,6 +837,11 @@ uv run code/MeanVersusMedian.py
                 \node[red, right] at (1.5, 0.5) {City B (Extreme)};
             \end{tikzpicture}
         }
+        
+           \only<beamer>{
+             Switch over to \textbf{menti.com} on your phones!
+    
+    \textit{(Code: 2860 3964)}}
     }
 \end{frame}
 
@@ -1118,6 +1148,10 @@ Clearly we cannot use the same materials for each.    To understand why dispersi
 Compute the standard deviation and variance of the following data.
     Data: $\{ 2, 4, 4, 4, 5, 5, 7, 9 \}$. ($n=8$).
     \end{example}
+       \only<beamer>{
+             Switch over to \textbf{menti.com} on your phones!
+    
+    \textit{(Code: 2860 3964)}}
    \pause
    \begin{solution}
   
