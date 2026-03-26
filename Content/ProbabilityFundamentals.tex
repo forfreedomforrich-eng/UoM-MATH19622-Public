@@ -218,16 +218,14 @@
         \node at (-2, 1) {$A$};
         \node at (2, 1) {$B$};
 
-        % --- Step 2: Shade A (visible from slide 2 onwards) ---
-        \only<2->{
+        % --- Step 2: Shade A ---
+        \only<presentation:2-| article>{
             % Custom color for A from previous examples
             \fill[blue, opacity=0.3] (Acoord) circle (\r);
-            % Instructor note (visible only in handout/article mode)
-            \only<article>{Start with the entire area of Event A: $P(A)$.}
         }
 
-        % --- Step 3: Shade B (visible on slide 3 and 4) ---
-        \only<3-4>{
+        % --- Step 3: Shade B ---
+        \only<presentation:3-4| article>{
             % Custom color for B
             \fill[red, opacity=0.3] (Bcoord) circle (\r);
             
@@ -236,18 +234,15 @@
                 \clip (Acoord) circle (\r);
                 \fill[purple, opacity=0.4] (Bcoord) circle (\r); % Darker overlap
             \end{scope}
-            
-            %Instructor note
-            \only<article>{Add the entire area of Event B: $+P(B)$. The middle area turns purple because we have counted it twice!}
         }
 
-        % --- Step 4: Visualise the overlap to subtract (slide 4) ---
-        \only<4>{
+        % --- Step 4: Visualise the overlap to subtract ---
+        \only<presentation:4 | article:0>{
             \draw[<-] (0,0) -- (1, -1.2) node[below] {\alert{Counted Twice!}};
         }
 
-        % --- Step 5: Final Union (visible on slide 5) ---
-        \only<5>{
+        % --- Step 5: Final Union (Hidden in Article mode) ---
+        \only<presentation:5>{
             % Shading the exact union smoothly
             \begin{scope}
                 \fill[purple!50!white] (Acoord) circle (\r);
@@ -261,14 +256,23 @@
             % Label intersection
             \draw[<-] (0,0) -- (0.8, -1.2) node[below] {$A \cap B$};
             \node at (0, 2) {\textbf{The Union} ($A \cup B$)};
-
-            %Instructor note
-            \only<article>{Subtract the intersection $- P(A \cap B)$. This leaves us with a smooth total area covered by A or B: $P(A \cup B)$.}
         }
 
     \end{tikzpicture}
     
-    % --- Instruction Block (appearing at the end) ---
+    % --- Article Reader Notes (Moved safely outside the TikZ picture) ---
+    \only<article>{
+        \vspace{0.3cm}
+        \textbf{How to read this diagram:}
+        \begin{itemize}
+            \item Start with the entire area of Event A: $P(A)$.
+            \item Add the entire area of Event B: $+P(B)$. 
+            \item The intersection turns dark purple because we have counted it twice!
+            \item To find the true Union area, we must subtract one instance of the intersection: $- P(A \cap B)$.
+        \end{itemize}
+    }
+    
+    % --- Instruction Block (appearing at the end in presentation mode) ---
     \only<presentation>{
         \pause[5] \vspace{-2mm}
         \begin{block}{Why do we subtract?}
