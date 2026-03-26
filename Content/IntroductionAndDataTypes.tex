@@ -57,6 +57,7 @@ To illustrate the point:
         \item \textbf{The Ideal World:} $V = IR$. A perfect resistor has exactly $100\,\Omega$ resistance.
         \item \textbf{The Real World:} A resistor has a tolerance (e.g., $100 \pm 5\,\Omega$). Thermal noise introduces random fluctuations in voltage.
     \end{itemize}
+    \pause
     \only<presentation>{\vspace{0.5cm}}
         \begin{block}{The Goal}
         Statistics allows us to quantify this uncertainty, distinguish the \textbf{signal} from the \textbf{noise}, and build reliable systems from imperfect components.
@@ -71,7 +72,7 @@ It is crucial to distinguish between \textbf{parameters}, which describe an enti
 
 \begin{frame}{Key Definitions: Population vs. Sample}
     \begin{columns}
-        \column{0.48\textwidth}
+      \column{0.48\textwidth}
         \begin{definition}[Population]
             The entire set of items/individuals of interest.
             \begin{itemize}
@@ -81,7 +82,7 @@ It is crucial to distinguish between \textbf{parameters}, which describe an enti
         \end{definition}
 
         \column{0.48\textwidth}
-        \begin{definition}[Sample]
+        \begin{definition}<2->[Sample]
             A subset of the population selected for analysis.
             \begin{itemize}
                 \item Example: A random batch of 50 capacitors tested for failure.
@@ -99,7 +100,7 @@ It is crucial to distinguish between \textbf{parameters}, which describe an enti
     }
 \only<presentation>{\vspace{0.5cm} \centering}
 %
-    {\emph{In this course, we mostly calculate Statistics to estimate Parameters.}\par}
+   \visible<3->{ {\emph{In this course, we mostly calculate Statistics to estimate Parameters.}\par}}
     
 \end{frame}
 
@@ -337,7 +338,7 @@ Scenario:
         \end{block}
 
         \column{0.48\textwidth}
-        \begin{block}{\only<presentation>{2. }Ongoing Process}
+        \begin{block}<2->{\only<presentation>{2. }Ongoing Process}
             \only<presentation>{
                 A system generating data over time.
                 \begin{itemize}
@@ -354,7 +355,7 @@ Scenario:
     \only<presentation>{\vspace{0.5cm}}
     
     % Grouped the centering so it doesn't break future slides
-    {\centering \textit{In both cases, we use \textbf{samples} (small datasets) to estimate the properties of the whole.}\par}
+   \visible<3->{ {\centering \textit{In both cases, we use \textbf{samples} (small datasets) to estimate the properties of the whole.}\par}}
     
 \end{frame}
 
@@ -369,6 +370,8 @@ Scenario:
             \item Examples: Component colour codes, Pass/Fail status.
         \end{itemize}
         \only<presentation>{\vspace{0.3cm}}
+        
+        \pause
         
         \item \textbf{Quantitative (Numerical):} Measured or counted values.
         \begin{itemize}
@@ -456,6 +459,8 @@ Scenario:
         \end{equation}
     \end{definition}
     
+    \pause
+    
     \begin{recipe}[Calculating the Mean]
         \begin{enumerate}
             \item Sum all the values.
@@ -475,6 +480,8 @@ Scenario:
     \begin{definition}[Median]
         The \alert{median} is the middle value when the data is ordered from smallest to largest.
     \end{definition}
+    
+    \pause
     
     \begin{recipe}[Calculating the Median]
         \begin{enumerate}
@@ -496,6 +503,8 @@ Scenario:
     \begin{definition}[Mode]
         The \alert{mode} is the value that occurs most frequently in the dataset.
     \end{definition}
+    
+    \pause
 
     \begin{recipe}[Calculating the Mode]
         \begin{enumerate}
