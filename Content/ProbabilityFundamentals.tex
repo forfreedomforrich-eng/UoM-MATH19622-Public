@@ -1,5 +1,5 @@
 %!TEX root = Reader.tex
-\part{Module 2: Probability Fundamentals}
+\part{Probability Fundamentals}
 
 % --- Lecture 3 ---
 %\begin{frame}{Lecture 3: Rules of Probability}
@@ -511,6 +511,33 @@
         }
     \end{solution}
 \end{frame}
+
+% -----------------------------------------------------------------------------
+\subsection{Summary}
+
+% --- Summary Slide 1 ---
+\begin{frame}{Summary: Probability Fundamentals}
+    \begin{itemize}
+        \item \textbf{The Language of Probability:} All experiments have a sample space ($S$). Events are subsets of that space.
+        \vspace{0.2cm}
+        \item \textbf{The Addition Law (Unions):} To find the probability of $A \cup B$, add their probabilities but remember to subtract the intersection!
+        \[ P(A \cup B) = P(A) + P(B) - P(A \cap B) \]
+        \vspace{0.1cm}
+        \item \textbf{The Multiplication Law (Intersections):} To find the probability of $A \cap B$, multiply $P(A)$ by the conditional probability of $B$ given $A$.
+        \[ P(A \cap B) = P(A) \times P(B|A) \]
+        \vspace{0.1cm}
+        \item \textbf{Independence:} If $A$ happening doesn't change the probability of $B$ happening, they are independent $\Rightarrow P(B|A) = P(B)$.
+    \end{itemize}
+\end{frame}
+
+% --- Summary Slide 2 ---
+\begin{frame}{Looking Ahead}
+   \only<presentation>{ \vspace{1cm}}
+    \begin{block}{Next Up: Discrete Probability Distributions}
+        Now that we know the basic rules of random events, we will map these events to numerical variables. Instead of just looking at \lq Pass/Fail\rq\ events, we will learn how to calculate the probability of getting \textit{exactly 3 failures} in a batch of 50!
+    \end{block}
+\end{frame}
+
 
 \only<article>{
 \section{Exercise Questions}

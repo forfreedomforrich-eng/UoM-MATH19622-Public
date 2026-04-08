@@ -1,3 +1,3 @@
 #!/bin/bash
 cd "$(dirname "$0")"
-python3 MeanVersusMedium.py
+python3 MeanVersusMedian.py 

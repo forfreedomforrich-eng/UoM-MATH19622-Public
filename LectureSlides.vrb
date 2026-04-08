@@ -1,28 +1,8 @@
-\frametitle{Python Implementation}
-\textbf{Warning:} NumPy calculates \textbf{Population} variance by default (divides by $n$). You must tell it to use the $n-1$ correction.
+\frametitle{Python: The Poisson Distribution}
+\only<article>{For the network faults example ($\lambda = 2$), we can calculate both exact and cumulative probabilities.}
 
-    \insertcode{Calculating SD in Python}{code/Standard_deviation.py}
+    \structure{Solving the \lq At most 2 drops\rq\ Problem:}
+    Instead of manually adding $P(X=0) + P(X=1) + P(X=2)$, we can use the Cumulative Distribution Function (\texttt{cdf}) to add them automatically!
 
-    \only<article>{
-        Note the parameter \textbf{\texttt{ddof}}:
-        \begin{itemize}
-            \item \textbf{\texttt{ddof=0}} \textit{(NumPy Default)}
-            \begin{itemize}
-                \item Calculates the \textbf{Population} Standard Deviation ($\sigma$).
-                \item Divides by $N$.
-            \end{itemize}
+ \insertcode{Poisson Example}{code/Poisson.py}
 
-            \item \textbf{\texttt{ddof=1}}
-            \begin{itemize}
-                \item Calculates the \textbf{Sample} Standard Deviation ($s$).
-                \item Divides by $n-1$ (\textit{Bessel's correction}).
-            \end{itemize}
-
-            \item \textbf{\texttt{ddof=2} (and beyond)}
-            \begin{itemize}
-                \item Divides by $n-2$.
-                \item Used in more advanced statistics, such as calculating the standard error of a linear regression line.
-            \end{itemize}
-
-        \end{itemize}
-            }

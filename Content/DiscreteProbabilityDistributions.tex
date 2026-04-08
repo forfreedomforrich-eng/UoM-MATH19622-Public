@@ -2,41 +2,7 @@
 
 \part{Discrete Probability Distributions}
 
-\begin{frame}[allowframebreaks]{Overview}
-    \small
-    \begin{itemize}
-        \item Random Variables ($X$)
-            \begin{itemize}
-                \item Discrete Probability Mass Functions (Tables)
-                \item \textbf{Expectation:} $E(X) = \sum x P(x)$ (The long-run average)
-            \end{itemize}
-        \item The Binomial Model
-            \begin{itemize}
-                \item Conditions: Fixed $n$, Binary outcomes ($p/q$), Independence
-                \item Formula: $P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$
-            \end{itemize}
-        \item Parameters \& Examples
-            \begin{itemize}
-                \item Mean $\mu = np$, Variance $\sigma^2 = np(1-p)$
-                \item Practical calculation examples (e.g., Quality Control)
-            \end{itemize}
-        \item The Poisson Distribution
-            \begin{itemize}
-                \item Modeling rare events in time/space ($P(X=k) = \frac{e^{-\lambda} \lambda^k}{k!}$)
-                \item Contrast: When to use Binomial vs. Poisson
-            \end{itemize}
-        \item Transition to Continuous Data
-            \begin{itemize}
-                \item From Histograms to Frequency Curves
-                \item Key Concept: Area under the curve = Probability ($100\%$)
-            \end{itemize}
-        \item Intro to The Normal Distribution
-            \begin{itemize}
-                \item Properties: Symmetric, Bell-shaped, Asymptotic tails
-                \item The Empirical Rule (68-95-99.7 Rule) for estimation
-            \end{itemize}
-    \end{itemize}
-\end{frame}
+
 
 \section{Discrete Probability Distributions}
 
@@ -327,4 +293,35 @@
  
  \insertcode{Poisson Example}{code/Poisson.py}
   
+\end{frame}
+
+\begin{frame}{Summary: Discrete Distributions}
+    \small
+    \begin{itemize}
+        \item \textbf{Random Variables ($X$)}
+            \begin{itemize}
+                \item Maps sample spaces to numerical values.
+                \item \textbf{Expectation:} $E(X) = \sum x P(x)$ (The long-run average).
+            \end{itemize}
+        \vspace{0.2cm}
+        \item \textbf{The Binomial Model}
+            \begin{itemize}
+                \item Conditions: Fixed $n$, Binary outcomes ($p/q$), Independence.
+                \item Formula: $P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$
+                \item Mean $\mu = np$, Variance $\sigma^2 = np(1-p)$.
+            \end{itemize}
+        \vspace{0.2cm}
+        \item \textbf{The Poisson Distribution}
+            \begin{itemize}
+                \item Modelling rare events over a continuous interval (time/space).
+                \item Formula: $P(X=k) = \frac{e^{-\lambda} \lambda^k}{k!}$
+                \item Mean and Variance are identical: $\mu = \sigma^2 = \lambda$.
+            \end{itemize}
+    \end{itemize}
+
+    \only<presentation>{\pause \vspace{-0.3cm}}
+
+    \begin{block}{Next Up: Continuous Probability Distributions}
+        \only<article>{So far, we have only counted discrete \lq events\rq\ (like 3 broken bulbs or 2 dropped packets).} But what happens when our random variable is a continuous physical measurement\only<article>{, like the exact voltage of a battery or the thermal noise in a circuit}? \only<article>{Next, we introduce the famous Normal Curve!}
+    \end{block}
 \end{frame}
