@@ -1,8 +1,16 @@
-\frametitle{Python: The Poisson Distribution}
-\only<article>{For the network faults example ($\lambda = 2$), we can calculate both exact and cumulative probabilities.}
+\frametitle{Python: The Normal Distribution}
+\only<article>{  In the old days, engineers had to use massive printed lookup tables to find areas under the Normal curve. Today, we just use the \texttt{scipy.stats} library!
 
-    \structure{Solving the \lq At most 2 drops\rq\ Problem:}
-    Instead of manually adding $P(X=0) + P(X=1) + P(X=2)$, we can use the Cumulative Distribution Function (\texttt{cdf}) to add them automatically!
 
- \insertcode{Poisson Example}{code/Poisson.py}
+    Because the probability of an exact point is zero, we almost never use the Probability Density Function (\texttt{pdf}) to find probabilities. Instead, we use the Cumulative Distribution Function (\texttt{cdf}) to find areas.
 
+}
+    \structure{Solving the Battery Problem ($8.8\text{V}$ to $9.2\text{V}$):}
+    \only<article>{To find the area between two points, we calculate the CDF of the upper limit and subtract the CDF of the lower limit.}
+
+    \insertcode{Normal Distribution in Python}{code/NormalDistribution.py}
+
+    \only<article>{
+        \vspace{0.2cm}
+        \textit{Note: In Python's \texttt{scipy.stats.norm}, the mean $\mu$ is called \texttt{loc} (location) and the standard deviation $\sigma$ is called \texttt{scale}.}
+    }

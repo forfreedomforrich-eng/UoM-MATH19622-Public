@@ -1,0 +1,94 @@
+%!TEX root = ExerciseSheet2.tex
+% -----------------------------------------------------------------------------
+% PART A
+% -----------------------------------------------------------------------------
+
+\subsection*{Part A: The Idea}
+\textit{These questions test the mathematical definitions and calculations devoid of physical context.}
+
+\begin{enumerate}[label=\textbf{Q\arabic*.}, leftmargin=*]
+    \item \textbf{Discrete Random Variables \& Expectation} \\
+    A discrete random variable $X$ has the following probability mass function (PMF):
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    $x$ & 0 & 1 & 2 & 3 \\ \hline
+    $P(X=x)$ & $0.4$ & $0.3$ & $0.2$ & $k$ \\ \hline
+    \end{tabular}
+    \end{center}
+    \begin{enumerate}[label=\arabic*.]
+        \item Find the value of $k$, knowing that the sum of all probabilities must equal 1.
+        \item Calculate the expected value, $E(X)$.
+    \end{enumerate}
+    \vspace{0.3cm}
+
+    \item \textbf{The Binomial Distribution} \\
+    Let $X$ be a binomial random variable modelled as $X \sim \text{Bin}(n=5, p=0.4)$.
+    \begin{enumerate}[label=\arabic*.]
+        \item Calculate the exact probability $P(X = 2)$.
+        \item Calculate the cumulative probability $P(X \leq 1)$. \textit{(Hint: This means $X=0$ or $X=1$).}
+        \item Calculate the mean ($\mu$) and the variance ($\sigma^2$) of this distribution using the shortcut formulas.
+    \end{enumerate}
+    \vspace{0.3cm}
+
+    \item \textbf{The Poisson Distribution} \\
+    Let $X$ be a Poisson random variable modelled as $X \sim \text{Pois}(\lambda=3)$.
+    \begin{enumerate}[label=\arabic*.]
+        \item Calculate the exact probability $P(X = 0)$.
+        \item Calculate the exact probability $P(X = 2)$.
+        \item What is the variance of this distribution? 
+    \end{enumerate}
+
+\end{enumerate}
+
+\vspace{0.8cm}
+
+% -----------------------------------------------------------------------------
+% PART B
+% -----------------------------------------------------------------------------
+\subsection*{Part B: Exam style questions: Engineering Application}
+\textit{These questions test the exact same mathematical concepts as Part A, but applied to the Electrical Engineering scenarios discussed in the lecture.}
+
+\begin{enumerate}[label=\textbf{Q\arabic*.}, leftmargin=*, start=4]
+
+    \item \textbf{Expectation in Component Testing} \\
+    A technician tests batches of 4 prototype relays. Let $X$ represent the number of relays in a batch that fail the high-voltage stress test. Historical data gives the following distribution:
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    $x$ & 0 & 1 & 2 & 3 & 4 \\ \hline
+    $P(X=x)$ & $0.65$ & $0.20$ & $0.10$ & $0.04$ & $0.01$ \\ \hline
+    \end{tabular}
+    \end{center}
+    \begin{enumerate}[label=\arabic*.]
+        \item Calculate the expected number of failures per batch.
+        \item If the company tests $1,000$ batches this month, how many total failed relays should the procurement team expect to replace?
+    \end{enumerate}
+    \vspace{0.3cm}
+
+    \item \textbf{Binomial Quality Assurance (Manufacturing Yield)} \\
+    A silicon wafer fabrication plant produces microchips. The manufacturing process has a known defect rate of $2\%$ ($p = 0.02$). An engineer pulls a random sample of $15$ chips for inspection.
+    \begin{enumerate}[label=\arabic*.]
+        \item What is the probability that \textbf{exactly 0} chips in the sample are defective? (A perfect sample).
+        \item What is the probability that \textbf{exactly 1} chip is defective?
+        \item The entire daily production run consists of $50,000$ chips. Calculate the expected number of defective chips produced in a day, and the standard deviation of the defects.
+    \end{enumerate}
+    \vspace{0.3cm}
+
+    \item \textbf{Poisson Fault Modelling (Network Reliability)} \\
+    A submarine fiber optic cable experiences tiny optical flaws along its length. These flaws occur randomly at an average rate of $1.5$ flaws per kilometre ($\lambda = 1.5$).
+    \begin{enumerate}[label=\arabic*.]
+        \item Calculate the probability of finding \textbf{exactly 0} flaws in a $1\text{ km}$ section of cable.
+        \item Calculate the probability of finding \textbf{exactly 2} flaws in a $1\text{ km}$ section of cable.
+        \item \textbf{Exam Challenge:} Calculate the probability of finding \textbf{more than 1} flaw in a $1\text{ km}$ section. \textit{(Hint: Use the complement rule: $P(X > 1) = 1 - P(X \leq 1)$)}.
+    \end{enumerate}
+    \vspace{0.3cm}
+
+    \item \textbf{System Selection: Binomial vs. Poisson} \\
+    As the lead systems engineer, you must decide which mathematical model to use for two different risk assessments. State whether you would use the \textbf{Binomial} or \textbf{Poisson} distribution for each, and justify your choice based on the rules learned in the lecture.
+    \begin{enumerate}[label=\arabic*.]
+        \item \textbf{Scenario A:} Counting the number of cosmic-ray induced \lq bit-flips\rq\ in a server's RAM module over a continuous 30-day period.
+        \item \textbf{Scenario B:} Testing 20 specific mechanical switches on a control panel, where each switch has a $5\%$ chance of sticking. You want to find the probability of exactly 3 switches sticking.
+    \end{enumerate}
+
+\end{enumerate}
