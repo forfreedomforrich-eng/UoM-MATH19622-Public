@@ -12,7 +12,7 @@ We use **Python** for our statistical analysis and data visualisation. To ensure
 2. **Run a script:** `uv run path/to/script.py`
 
 ## ☕ The QA Bounty Program (First-to-Report)
-I am offering **£5 Gift Vouchers** for students who identify minor errors and **£10 Gift Vouchers** for suggestions significant clarity improvements in these materials.
+I am offering **£5 Gift Vouchers** for students who identify minor errors and **£10 Gift Vouchers** for suggesting significant clarity improvements in these materials.
 
 ### How to claim:
 1. **Find an error:** A typo in the LaTeX slides, a bug in the Python code, or a calculation error.
